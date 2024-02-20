@@ -33,11 +33,14 @@ class HelloWorldTest {
 
 	@Test
 	void test() throws IOException {
-		byte[] initialArray = "Prakash\n".getBytes();
+		byte[] initialArray = "Crystal".getBytes();
 	    InputStream targetStream = new ByteArrayInputStream(initialArray);
 		System.setIn(targetStream);
 	    HelloWorld.main(null);
-		assertEquals("Please input your name: \nHello, Prakash", out.toString().strip());
+	    String outputString = out.toString().strip();
+	    outputString = outputString.replace( '\r', ' ');
+	    	assertEquals("Please input your name: \r\nHello, Crystal", out.toString().strip());
+	    
 	}
 
 }
